@@ -1,14 +1,4 @@
-### /gateway-api
-```bash
-docker build -t gateway-api .
-```
-
-### /micro
-```bash
-docker build -t micronest .
-```
-
-### pasta raiz
+### Para iniciar os 4 containers, rode:
 ```bash
 docker-compose up
 ```

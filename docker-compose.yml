@@ -10,7 +10,7 @@ services:
       - 5672:5672
 
   micronest1:
-    image: micronest
+    build: ./micro
     container_name: micronest1
     networks:
       - my_bridge_network
@@ -20,7 +20,7 @@ services:
       - rabbitmq
 
   micronest2:
-    image: micronest
+    build: ./micro
     container_name: micronest2
     networks:
       - my_bridge_network
@@ -30,7 +30,7 @@ services:
       - rabbitmq
 
   gateway-api:
-    image: gateway-api
+    build: ./gateway-api
     container_name: gateway-api
     networks:
       - my_bridge_network
