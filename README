@@ -1,0 +1,14 @@
+### /gateway-api
+```bash
+docker build -t gateway-api .
+```
+
+### /micro
+```bash
+docker build -t micronest .
+```
+
+### pasta raiz
+```bash
+docker-compose up
+```

@@ -1,0 +1,46 @@
+version: "3.9"
+
+services:
+  rabbitmq:
+    image: rabbitmq
+    container_name: rabbitmq
+    networks:
+      - my_bridge_network
+    ports:
+      - 5672:5672
+
+  micronest1:
+    image: micronest
+    container_name: micronest1
+    networks:
+      - my_bridge_network
+    ports:
+      - 3001:3000
+    depends_on:
+      - rabbitmq
+
+  micronest2:
+    image: micronest
+    container_name: micronest2
+    networks:
+      - my_bridge_network
+    ports:
+      - 3002:3000
+    depends_on:
+      - rabbitmq
+
+  gateway-api:
+    image: gateway-api
+    container_name: gateway-api
+    networks:
+      - my_bridge_network
+    ports:
+      - 3000:3000
+    depends_on:
+      - rabbitmq
+      - micronest1
+      - micronest2
+
+networks:
+  my_bridge_network:
+    driver: bridge
